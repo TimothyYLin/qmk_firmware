@@ -213,19 +213,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     /* Layer 2: Function Layer 
-    * - Includes missing 100% keys (Insert, Home, End, etc.)
+    * - Includes missing 100% keys (Application, Insert, Home, End, etc.)
     * - Includes the Linux Mode Toggle (Toggles to the Linux layer and changes Unicode Mode to Linux Mode)
     * - Includes media controls for pause/play, volume up/down, previous/next songs
+    * - Includes monitor brightness down/up for MacOS on F1/F2 keys
     * - Encoders:
     *   - Left:  Move window to Workspace Left/Right (Linux) | Click: Discord Mute (CTRL + SHIFT + ALT + F10)
     *   - Right: Track Skip (Prev/Next Song)                 | Click: Discord Deafen (CTRL + SHIFT + ALT + F11)
     */
     [_FUNCTION] = LAYOUT_all(
-        DISC_MUTE, KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          DISC_DEAF,
+        DISC_MUTE, KC_TRNS,      KC_BRID, KC_BRIU, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          DISC_DEAF,
         KC_TRNS,   KC_TRNS,      KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,   KC_F18,  KC_F19,  KC_F20,  KC_F21,   KC_F22,  KC_F23,  KC_TRNS, KC_INS,  KC_TRNS, KC_HOME,
         KC_TRNS,   TOGGLE_LINUX, KC_TRNS, KC_TRNS, KC_END,  KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_INS,  KC_PAUS,  KC_PSCR, KC_TRNS, KC_TRNS, KC_TRNS,          KC_PGUP,
-        KC_TRNS,   KC_CAPS,      KC_TRNS, KC_SCRL, KC_TRNS, KC_TRNS, KC_TRNS,  KC_HOME, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_PGDN,
-        KC_TRNS,   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_CALC, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,          KC_TRNS, KC_VOLU, KC_END,
+        KC_TRNS,   KC_CAPS,      KC_APP,  KC_SCRL, KC_TRNS, KC_TRNS, KC_TRNS,  KC_HOME, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_PGDN,
+        KC_TRNS,   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_CALC, KC_TRNS,  KC_TRNS, KC_NUM,  KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,          KC_TRNS, KC_VOLU, KC_END,
         KC_TRNS,   KC_TRNS,      KC_TRNS, KC_TRNS,                   MO(_RGB), KC_MPLY, KC_MPLY,                    KC_TRNS, KC_TRNS, KC_TRNS, KC_MPRV, KC_VOLD, KC_MNXT
     ),
 
@@ -260,20 +261,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     /* Layer 5: Horizontal Nav & Virtual Numpad
-    * - Numpad on [7 8 9]
-    *             |U I O|
-    *             |J K L|
-    *             [  M .]
+    * - Numpad on  [7 8 9]
+    *              |U I O|
+    *              |J K L|
+    *            N [M , .]
+    *   - N is numlock
+    *   - M and ,     are 0
+    *   - Y and P     are *
+    *   - ; and Enter are Enter
+    *   - / is /, - is -, = is +, Backspace is Backspace
     * - Encoders:
     *   - Left:  Switch Tabs (VSCode/Browsers) | Click: Format highlighted (VSCode)
     *   - Right: Skip words                    | Click: Mute
     */
     [_NAV_H] = LAYOUT_all(
         FORMAT,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_P7,   KC_P8,   KC_P9,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_P4,   KC_P5,   KC_P6,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_P1,   KC_P2,   KC_P3,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,
-        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_P0,   KC_PDOT, KC_TRNS, KC_TRNS,          KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_P7,   KC_P8,   KC_P9,   KC_TRNS, KC_PMNS, KC_PPLS, KC_BSPC, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_PAST, KC_P4,   KC_P5,   KC_P6,   KC_PAST, KC_TRNS, KC_TRNS, KC_TRNS,          KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_P1,   KC_P2,   KC_P3,   KC_PENT, KC_TRNS, KC_TRNS, KC_PENT,          KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_NUM,  KC_P0,   KC_P0,   KC_PDOT, KC_PSLS,          KC_TRNS, KC_TRNS, KC_TRNS,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
     ),
 

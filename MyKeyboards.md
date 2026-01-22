@@ -77,9 +77,10 @@ Features implemented in my specific [keymap.c](keyboards/haverworks/theseus75/ke
         - Right: Volume Control           | Click: Mute
 
 - **Layer 2: Function Layer**
-    - Includes missing 100% keys (Insert, Home, End, etc.)
+    - Includes missing 100% keys (Application, Insert, Home, End, etc.)
     - Includes the Linux Mode Toggle (Toggles to the Linux layer and changes Unicode Mode to Linux Mode)
     - Includes media controls for pause/play, volume up/down, previous/next songs
+    - Includes monitor brightness down/up for MacOS on F1/F2 keys
     - Encoders:
         - Left:  Move window to Workspace Left/Right (Linux) | Click: Discord Mute (CTRL + SHIFT + ALT + F10)
         - Right: Track Skip (Prev/Next Song)                 | Click: Discord Deafen (CTRL + SHIFT + ALT + F11)
@@ -98,10 +99,15 @@ Features implemented in my specific [keymap.c](keyboards/haverworks/theseus75/ke
 
 - **Layer 5: Horizontal Nav & Virtual Numpad**
     - Numpad on
-    [7 8 9]
-    |U I O|
-    |J K L|
-    [  M .]
+      [7 8 9]
+      |U I O|
+      |J K L|
+    N [M , .]
+        - N is numlock
+        - M and ,     are 0
+        - Y and P     are *
+        - ; and Enter are Enter
+        - / is /, - is -, = is +, Backspace is Backspace
     - Encoders:
         - Left:  Switch Tabs (VSCode/Browsers) | Click: Format highlighted (VSCode)
         - Right: Skip words                    | Click: Mute
