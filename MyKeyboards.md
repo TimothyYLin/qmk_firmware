@@ -45,7 +45,7 @@ I own the following keyboards and the following instructions will help document 
 
     </details>
 
-#### My keymap specifics
+#### My Keymap Specifics
 
 Features implemented in my specific [keymap.c](keyboards/haverworks/theseus75/keymaps/linsanefc/keymap.c) include:
 - 7 Total Layers:
@@ -58,7 +58,62 @@ Features implemented in my specific [keymap.c](keyboards/haverworks/theseus75/ke
     7. RGB Control
 
 - Each layer contains encoder macros that help with media control, development, ease of use (Discord mute/deafen toggle)
-- For further information, read the comments in the [keymap.c](keyboards/haverworks/theseus75/keymaps/linsanefc/keymap.c)
+- For further information, read the comments in the [keymap.c](keyboards/haverworks/theseus75/keymaps/linsanefc/keymap.c) or see below
+
+<details>
+    <summary>Detailed Layer Information</summary>
+
+- **Layer 0: Windows/Keyboard Base**
+    - Default main usages of keyboard
+    - Encoders:
+        - Left:  Workspace Switch (Windows) | Click: Turn on/off RGB
+        - Right: Volume Control             | Click: Mute
+
+- **Layer 1: Linux Overlay**
+    - Activated via TG(_LINUX) on the Function Layer (Left Macro Column Top)
+    - Contains Linux-specific shortcuts on the left macro column
+        - Encoders:
+        - Left:  Workspace Switch (Linux) | Click: Turn on/off RGB
+        - Right: Volume Control           | Click: Mute
+
+- **Layer 2: Function Layer**
+    - Includes missing 100% keys (Insert, Home, End, etc.)
+    - Includes the Linux Mode Toggle (Toggles to the Linux layer and changes Unicode Mode to Linux Mode)
+    - Includes media controls for pause/play, volume up/down, previous/next songs
+    - Encoders:
+        - Left:  Move window to Workspace Left/Right (Linux) | Click: Discord Mute (CTRL + SHIFT + ALT + F10)
+        - Right: Track Skip (Prev/Next Song)                 | Click: Discord Deafen (CTRL + SHIFT + ALT + F11)
+
+- **Layer 3: Emoji Layer**
+    - Emojis that I use regularly
+    - Encoders:
+        - Left:  Find next/previous instance (VSCode)         | Click: Format highlighted (VSCode)
+        - Right: Add selection/cursor to Next/Prev Find Match | Click: Mute
+
+- **Layer 4: Vertical Nav**
+    - Navigation (WASD + Q/E for Page Up/Dn + Z/X for Home/End)
+    - Encoders:
+        - Left:  Scroll Lines (Up/Down) | Click: Format highlighted (VSCode)
+        - Right: Zoom (VSCode/Browsers) | Click: Mute 
+
+- **Layer 5: Horizontal Nav & Virtual Numpad**
+    - Numpad on
+    [7 8 9]
+    |U I O|
+    |J K L|
+    [  M .]
+    - Encoders:
+        - Left:  Switch Tabs (VSCode/Browsers) | Click: Format highlighted (VSCode)
+        - Right: Skip words                    | Click: Mute
+
+- **Layer 6: RGB Controls**
+    - Arrows: Speed (Up/Down), Hue (Left/Right)
+    - PgUp/PgDn: Saturation (Vivid/Pastel)
+    - Encoders:
+        - Left:  Cycle Modes (Prev/Next Effect) | Click: Turn on/off RGB
+        - Right: Brightness (Decrease/Increase) | Click: Turn on/off RGB
+
+</details>
 
 ***
 
