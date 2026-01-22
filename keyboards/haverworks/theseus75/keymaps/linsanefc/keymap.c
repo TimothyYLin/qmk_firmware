@@ -197,7 +197,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     /* Layer 1: Linux Overlay
-    * - Activated via TG(_LINUX) on the Function Layer (Left Macro Column Top)
+    * - Activated via TOGGLE_LINUX on the Function Layer (Tab Key)
     * - Contains Linux-specific shortcuts on the left macro column
     * - Encoders:
     *   - Left:  Workspace Switch (Linux) | Click: Turn on/off RGB
