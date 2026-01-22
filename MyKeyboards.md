@@ -70,7 +70,7 @@ Features implemented in my specific [keymap.c](keyboards/haverworks/theseus75/ke
         - Right: Volume Control             | Click: Mute
 
 - **Layer 1: Linux Overlay**
-    - Activated via TG(_LINUX) on the Function Layer (Left Macro Column Top)
+    - Activated via TOGGLE_LINUX on the Function Layer (Tab Key)
     - Contains Linux-specific shortcuts on the left macro column
         - Encoders:
         - Left:  Workspace Switch (Linux) | Click: Turn on/off RGB
