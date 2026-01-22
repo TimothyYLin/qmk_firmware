@@ -8,6 +8,7 @@ enum custom_keycodes {
     FORMAT = SAFE_RANGE,  // VSCode Format Highlighted Macro
     DISC_MUTE,            // Discord Mute Macro
     DISC_DEAF,            // Discord Deafen Macro
+    TOGGLE_LINUX,         // Toggle Linux Layer and Emoji Unicode Mode
     FLAG_TW,              // 🇹🇼
     FLAG_US,              // 🇺🇸
     ARR_LEFT,             // ⬅️
@@ -213,19 +214,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* Layer 2: Function Layer 
     * - Includes missing 100% keys (Insert, Home, End, etc.)
-    * - Includes the Linux Mode Toggle
+    * - Includes the Linux Mode Toggle (Toggles to the Linux layer and changes Unicode Mode to Linux Mode)
     * - Includes media controls for pause/play, volume up/down, previous/next songs
     * - Encoders:
     *   - Left:  Move window to Workspace Left/Right (Linux) | Click: Discord Mute (CTRL + SHIFT + ALT + F10)
     *   - Right: Track Skip (Prev/Next Song)                 | Click: Discord Deafen (CTRL + SHIFT + ALT + F11)
     */
     [_FUNCTION] = LAYOUT_all(
-        DISC_MUTE, KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          DISC_DEAF,
-        KC_TRNS,   KC_TRNS,    KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,   KC_F18,  KC_F19,  KC_F20,  KC_F21,   KC_F22,  KC_F23,  KC_TRNS, KC_INS,  KC_TRNS, KC_HOME,
-        KC_TRNS,   TG(_LINUX), KC_TRNS, KC_TRNS, KC_END,  KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_INS,  KC_PAUS,  KC_PSCR, KC_TRNS, KC_TRNS, KC_TRNS,          KC_PGUP,
-        KC_TRNS,   KC_CAPS,    KC_TRNS, KC_SCRL, KC_TRNS, KC_TRNS, KC_TRNS,  KC_HOME, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_PGDN,
-        KC_TRNS,   KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS, KC_CALC, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,          KC_TRNS, KC_VOLU, KC_END,
-        KC_TRNS,   KC_TRNS,    KC_TRNS, KC_TRNS,                   MO(_RGB), KC_MPLY, KC_MPLY,                    KC_TRNS, KC_TRNS, KC_TRNS, KC_MPRV, KC_VOLD, KC_MNXT
+        DISC_MUTE, KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          DISC_DEAF,
+        KC_TRNS,   KC_TRNS,      KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,   KC_F18,  KC_F19,  KC_F20,  KC_F21,   KC_F22,  KC_F23,  KC_TRNS, KC_INS,  KC_TRNS, KC_HOME,
+        KC_TRNS,   TOGGLE_LINUX, KC_TRNS, KC_TRNS, KC_END,  KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_INS,  KC_PAUS,  KC_PSCR, KC_TRNS, KC_TRNS, KC_TRNS,          KC_PGUP,
+        KC_TRNS,   KC_CAPS,      KC_TRNS, KC_SCRL, KC_TRNS, KC_TRNS, KC_TRNS,  KC_HOME, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,          KC_PGDN,
+        KC_TRNS,   KC_TRNS,      KC_TRNS, KC_TRNS, KC_TRNS, KC_CALC, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,          KC_TRNS, KC_VOLU, KC_END,
+        KC_TRNS,   KC_TRNS,      KC_TRNS, KC_TRNS,                   MO(_RGB), KC_MPLY, KC_MPLY,                    KC_TRNS, KC_TRNS, KC_TRNS, KC_MPRV, KC_VOLD, KC_MNXT
     ),
 
     /* Layer 3: Emoji Layer 
@@ -237,7 +238,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_EMOJI] = LAYOUT_all(
         FORMAT,     KC_TRNS,          UC(UNAMUSED),      UC(DRUM),         UC(HEART),           UC(ROLL_EYES),      UC(BAGS_UNDER_EYES),  UC(HOLDING_TEARS),  KC_F7,             UC(DISAPPOINTED),  UC(RELIEVED),  KC_TRNS,           KC_TRNS,          KC_TRNS,        KC_TRNS,           KC_TRNS,
         KC_TRNS,    UC(SMIRK),        UC(SWEAT),         UC(GAME),         UC(HEART_EYES),      UC(MONEY),          UC(WAVE),             UC(CAKE),           UC(SNAKE),         UC(COOL),          UC(SAD),       UC(SLIGHT_SMILE),  UC(NEUTRAL),      FLAG_TW,        FLAG_US, KC_DEL,   UC(PURPLE_HEART),
-        KC_TRNS,    UC_NEXT,          UC(SHUSH),         UC(MONEY_WINGS),  UC(EXPRESSIONLESS),  UC(TIRED),          UC(PARTY),            UC(SHRUG),          UC(PANDA),         UC(RABBIT),        UC(SURPRISED), UC(PLEADING),      UC(BUBBLE_TEA),   UC(PIANO),      UC(SOCCER),        UC(CHECK),
+        KC_TRNS,    KC_TRNS,          UC(SHUSH),         UC(MONEY_WINGS),  UC(EXPRESSIONLESS),  UC(TIRED),          UC(PARTY),            UC(SHRUG),          UC(PANDA),         UC(RABBIT),        UC(SURPRISED), UC(PLEADING),      UC(BUBBLE_TEA),   UC(PIANO),      UC(SOCCER),        UC(CHECK),
         KC_TRNS,    UC(CAP),          UC(SMILING_TEARS), UC(CRY),          UC(SKULL),           UC(FACEPALM),       UC(GRIN),             UC(PRAY),           UC(LAUGH),         UC(KISS),          UC(EYES),      UC(TONGUE),        UC(CRYING_FACE),  KC_TRNS,        UC(FLEX),          UC(CROSS),
         KC_TRNS,    KC_TRNS, KC_TRNS, UC(HAPPY),         UC(HEART_GIFT),   UC(SPARKLING_HEART), UC(HEARTS_ROTATE),  UC(FIRE),             UC(DROP),           UC(MELTING_FACE),  UC(STUCK_TONGUE),  UC(PINGPONG),  UC(THINKING),                        UC(STRAWBERRY), UC(THUMBS_UP),     UC(YIKES),
         KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS,   KC_TRNS,  KC_TRNS,           KC_TRNS,   KC_TRNS,       KC_TRNS,                                                                                                                  ARR_LEFT,       UC(THUMBS_DOWN),   ARR_RIGHT
@@ -373,7 +374,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 tap_code16(C(A(S(KC_F11))));
             }
             return false;
-            
+        case TOGGLE_LINUX:
+            if (record->event.pressed) {
+                if (layer_state_is(_LINUX)) {
+                    layer_off(_LINUX);
+                    set_unicode_input_mode(UNICODE_MODE_WINCOMPOSE);
+                } else {
+                    layer_on(_LINUX);
+                    set_unicode_input_mode(UNICODE_MODE_LINUX);
+                }
+            }
+            return false;
         case FLAG_TW:
             if (record->event.pressed) {
                 send_unicode_string("\U0001F1F9\U0001F1FC"); 
